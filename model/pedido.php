@@ -49,12 +49,19 @@ class Pedido
 	{
 		try 
 		{
-			$stm = $this->pdo
+			$url = 'http://localhost/webserviceRestaurantes/pedidos/'.$folio;
+
+			$response = \Httpful\Request::get($url)
+			->addHeader('authorization', '94574891ab17f57de133627922df93b6')
+			->send();
+
+			return json_decode($response);	
+			/*$stm = $this->pdo
 			          ->prepare("SELECT * FROM pedidos WHERE folio = ?");
 			          
 
 			$stm->execute(array($folio));
-			return $stm->fetch(PDO::FETCH_OBJ);
+			return $stm->fetch(PDO::FETCH_OBJ);*/
 		} catch (Exception $e) 
 		{
 			die($e->getMessage());
@@ -81,7 +88,15 @@ class Pedido
 	{
 		try 
 		{
-			$sql = "UPDATE pedidos SET 				
+
+			$url = 'http://localhost/webserviceRestaurantes/pedidos';
+
+			$response = \Httpful\Request::put($url)
+			->addHeader('authorization', '94574891ab17f57de133627922df93b6')
+			->send();
+
+			return json_decode($response);	
+			/*$sql = "UPDATE pedidos SET 				
 						id_cte = ?,
 						id_estab = ?,
 						hora_solicitud = ?,
@@ -101,7 +116,7 @@ class Pedido
 						$data->total,
                         $data->folio
 					)
-				);
+				);*/
 		} catch (Exception $e) 
 		{
 			die($e->getMessage());
