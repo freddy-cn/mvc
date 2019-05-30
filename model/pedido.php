@@ -1,4 +1,5 @@
 <?php
+include_once('./httpful.phar');
 class Pedido
 {
 	private $pdo;
@@ -11,6 +12,7 @@ class Pedido
 	public $forma_pago;
 	public $total;
 
+	public $response;
 
 	public function __CONSTRUCT()
 	{
@@ -27,13 +29,26 @@ class Pedido
 	public function Listar()
 	{
 		try
-		{
-			$result = array();
+		{			
 
-			$stm = $this->pdo->prepare("SELECT * FROM pedidos");
+			$url = 'http://localhost/webserviceRestaurantes/pedidos';
+
+			$response = \Httpful\Request::get($url)
+			->addHeader('authorization', '94574891ab17f57de133627922df93b6')
+			->send();
+
+			echo "respuesta: <br>";
+			echo $response;
+
+			/*if ($response->hasBody()){
+			        echo $response->$raw_body;        
+			    }*/
+			return json_decode($response);
+			//------------------
+			/*$stm = $this->pdo->prepare("SELECT * FROM pedidos");
 			$stm->execute();
 
-			return $stm->fetchAll(PDO::FETCH_OBJ);
+			return $stm->fetchAll(PDO::FETCH_OBJ);*/
 		}
 		catch(Exception $e)
 		{
