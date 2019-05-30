@@ -18,13 +18,13 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach($this->model->Listar() as $pedido): 
-        /*var_dump($pedido[0]);
-        var_dump($pedido[1]);
-        */
+
+    <?php
+    $modelo = $this->model->Listar();        
+     foreach($modelo->datos as $pedido):         
         ?>        
         <tr>
-            <td><?php echo $pedido[0]['folio']; ?></td>
+            <td><?php echo $pedido->folio; ?></td>
             <td><?php echo $pedido->id_cte; ?></td>
             <td><?php echo $pedido->id_estab; ?></td>
             <td><?php echo $pedido->hora_solicitud; ?></td>
@@ -32,7 +32,7 @@
             <td><?php echo $pedido->forma_pago; ?></td>
             <td><?php echo $pedido->total; ?></td>
             <td>
-                <a href="?c=Pedido&a=Crud&folio=<?php echo $r->folio; ?>">Editar</a>
+                <a href="?c=Pedido&a=Crud&folio=<?php echo $pedido->folio; ?>">Editar</a>
             </td>
             <td>
                 <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Pedido&a=Eliminar&id=<?php echo $pedido->folio; ?>">Eliminar</a>

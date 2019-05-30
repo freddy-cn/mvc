@@ -37,18 +37,7 @@ class Pedido
 			->addHeader('authorization', '94574891ab17f57de133627922df93b6')
 			->send();
 
-			echo "respuesta: <br>";
-			echo $response;
-
-			/*if ($response->hasBody()){
-			        echo $response->$raw_body;        
-			    }*/
-			return json_decode($response);
-			//------------------
-			/*$stm = $this->pdo->prepare("SELECT * FROM pedidos");
-			$stm->execute();
-
-			return $stm->fetchAll(PDO::FETCH_OBJ);*/
+			return json_decode($response);	
 		}
 		catch(Exception $e)
 		{
@@ -74,7 +63,7 @@ class Pedido
 
 	public function Eliminar($folio)
 	{
-		/*		 
+			 
 		try 
 		{
 			$stm = $this->pdo
@@ -84,54 +73,8 @@ class Pedido
 		} catch (Exception $e) 
 		{
 			die($e->getMessage());
-		}*/
-
-		// adaptación a web service
-		$url = 'http://localhost/webService/empleados/login/';
-//echo $_SERVER["REQUEST_METHOD"];
-if($_SERVER["REQUEST_METHOD"] == "DELETE"){         
-   $datos_post = json_encode(
-      array(
-         "correo_emp" => $_REQUEST['email'],
-         "password_emp" => $_REQUEST['password']
-         )
-      );   
-
-   $opciones = array(
-      'http' => array(      
-         'method'=>"DELETE",
-         'max_redirects' => '0',
-         'ignore_errors' => '1',
-         'header'=>"Accept-language: es\r\n" . 
-                  "Cookie: val=unknown\r\n" .
-                  "content-type: application/text\r\n ",
-         'content' => $datos_post
-         )
-      );
-   
-   $contexto = stream_context_create($opciones);
-   $fp = fopen($url, 'r',1, $contexto);
-   //var_dump($meta = stream_get_meta_data($fp));
-   $respuesta = stream_get_contents($fp);
-   $contenido = array();
-   $contenido = json_decode($respuesta, true);
-         
-   if($contenido["empleado"]["claveApi"]){
-      // variables de sesión
-      session_id("nuevaSesion");
-      session_start();
-      $_SESSION['sesion_iniciada'] = true;
-      $_SESSION['usuario'] = $contenido["empleado"]["correo_emp"];      
-      $_SESSION['claveApi'] = $contenido["empleado"]["claveApi"];      
-      
-      fclose($fp);      
-      header('Location: index.php');
-      exit();   
-   }else{
-      header('Location: #');
-   }
-}
-		// adaptación a web service		
+		}
+		
 	}
 
 	public function Actualizar($data)
