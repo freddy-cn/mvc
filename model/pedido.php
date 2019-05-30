@@ -13,6 +13,7 @@ class Pedido
 	public $total;
 
 	public $response;
+	public $key;
 
 	public function __CONSTRUCT()
 	{
@@ -49,12 +50,12 @@ class Pedido
 	{
 		try 
 		{
+			$key =  $_SESSION['claveApi'];
 			$url = 'http://localhost/webserviceRestaurantes/pedidos/'.$folio;
 
 			$response = \Httpful\Request::get($url)
-			->addHeader('authorization', '94574891ab17f57de133627922df93b6')
+			->addHeader('authorization', $key)
 			->send();
-
 			return json_decode($response);	
 			/*$stm = $this->pdo
 			          ->prepare("SELECT * FROM pedidos WHERE folio = ?");

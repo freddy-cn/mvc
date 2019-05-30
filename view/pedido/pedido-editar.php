@@ -1,6 +1,6 @@
 <h1 class="page-header">
     <?php  
-    $test = $pedido->datos[0];
+    $test = $pedido->datos[0];    
     echo $test->folio != null ? $test->folio : 'Nuevo Registro'; ?>
 </h1>
 
