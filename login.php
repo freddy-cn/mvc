@@ -41,6 +41,7 @@
 <?php
 $url = 'http://localhost/webserviceRestaurantes/empleados/login';
 
+   //var_dump($_SERVER["REQUEST_METHOD"]);
 if($_SERVER["REQUEST_METHOD"] == "POST"){
    $datos_post = json_encode(
       array(
@@ -52,8 +53,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    $opciones = array(
       'http' => array(      
          'method'=>"POST",
-         'max_redirects' => '0',
-         'ignore_errors' => '1',
+         //'max_redirects' => '0',
+         //'ignore_errors' => '1',
          'header'=>"Accept-language: es\r\n" . 
                   "Cookie: val=unknown\r\n" .
                   "content-type: application/text\r\n ",
@@ -62,24 +63,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       );
    
    $contexto = stream_context_create($opciones);
-   $fp = fopen($url, 'r',1, $contexto);
-   var_dump($meta = stream_get_meta_data($fp));
+   $fp = fopen($url, 'r',1, $contexto);      
    $respuesta = stream_get_contents($fp);
+   var_dump($respuesta);
    $contenido = array();
-   $contenido = json_decode($respuesta, true);
-         
-   /*if($contenido["empleado"]["claveApi"]){
+   $contenido = json_decode($respuesta, true);      
+   if($contenido["empleado"]["claveApi"]){      
       // variables de sesión
       session_id("nuevaSesion");
       session_start();
       $_SESSION['sesion_iniciada'] = true;
-      $_SESSION['usuario'] = $contenido["empleado"]["correo_emp"];      
+      $_SESSION['usuario'] = $contenido["empleado"]["correo_emp"];
       $_SESSION['claveApi'] = $contenido["empleado"]["claveApi"];      
       
       fclose($fp);      
-      header('Location: index.php');
+      //header('Location: /index.php');
+      echo "hola";
       exit();   
-   }else{
+   }/*else{
       header('Location: #');
    }*/
 }
