@@ -57,12 +57,7 @@ class Pedido
 			->addHeader('authorization', $key)
 			->send();
 			return json_decode($response);	
-			/*$stm = $this->pdo
-			          ->prepare("SELECT * FROM pedidos WHERE folio = ?");
-			          
-
-			$stm->execute(array($folio));
-			return $stm->fetch(PDO::FETCH_OBJ);*/
+			
 		} catch (Exception $e) 
 		{
 			die($e->getMessage());
@@ -74,10 +69,14 @@ class Pedido
 			 
 		try 
 		{
-			$stm = $this->pdo
-			            ->prepare("DELETE FROM pedidos WHERE folio = ?");			          
+			$key =  $_SESSION['claveApi'];
+			$url = 'http://localhost/webserviceRestaurantes/pedidos/'.$folio;
 
-			$stm->execute(array($folio));
+			$response = \Httpful\Request::delete($url)
+			->addHeader('authorization', $key)
+			->send();
+			return json_decode($response);	
+
 		} catch (Exception $e) 
 		{
 			die($e->getMessage());
