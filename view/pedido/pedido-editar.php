@@ -14,7 +14,7 @@
     
     <div class="form-group">
         <label>Id cliente</label>
-        <input type="text" name="id_cte" value="<?php echo $test->id_cte; ?>" class="form-control" placeholder="Ingrese su nombre" data-validacion-tipo="requerido|min:3" />
+        <input type="text" name="id_cte" value="<?php echo $test->id_cte; ?>" class="form-control" placeholder="Ingrese su nombre" data-validacion-tipo="requerido|min:3" />         
     </div>
     
     <div class="form-group">

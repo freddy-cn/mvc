@@ -38,9 +38,21 @@ class PedidoController{
         $pedido->forma_pago = $_REQUEST['forma_pago'];
         $pedido->total = $_REQUEST['total'];
 
+        $datos_json = json_encode(
+            array(
+                'folio' => $pedido->folio,
+                'id_cte' => $pedido->id_cte,
+                'id_estab' =>$pedido->id_estab,
+                'hora_solicitud'=>$pedido->hora_solicitud,
+                'status_pedido'=>$pedido->status_pedido,
+                'forma_pago'=>$pedido->forma_pago,
+                'total'=>$pedido->total
+            )
+        );
+
         $pedido->folio > 0 
-            ? $this->model->Actualizar($pedido)
-            : $this->model->Registrar($pedido);
+            ? $this->model->Actualizar($datos_json)
+            : $this->model->Registrar($datos_json);
         
         header('Location: index.php');
     }

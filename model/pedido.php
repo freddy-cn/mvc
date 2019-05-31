@@ -88,59 +88,34 @@ class Pedido
 	{
 		try 
 		{
-
-			$url = 'http://localhost/webserviceRestaurantes/pedidos';
+			$key =  $_SESSION['claveApi'];
+			$url = 'http://localhost/webserviceRestaurantes/pedidos/'.$folio;
 
 			$response = \Httpful\Request::put($url)
-			->addHeader('authorization', '94574891ab17f57de133627922df93b6')
+			->addHeader('authorization', $key)
+			->body($data)
 			->send();
 
-			return json_decode($response);	
-			/*$sql = "UPDATE pedidos SET 				
-						id_cte = ?,
-						id_estab = ?,
-						hora_solicitud = ?,
-						status_pedido = ?,
-						forma_pago = ?,
-						total = ?,						
-				    WHERE folio = ?";
-
-			$this->pdo->prepare($sql)
-			     ->execute(
-				    array(
-                        $data->id_cte, 
-                        $data->id_estab,
-                        $data->hora_solicitud,
-                        $data->status_pedido,
-						$data->forma_pago,
-						$data->total,
-                        $data->folio
-					)
-				);*/
+			return json_decode($response);				
 		} catch (Exception $e) 
 		{
 			die($e->getMessage());
 		}
 	}
 
-	public function Registrar(Pedido $data)
+	public function Registrar($data)
 	{
 		try 
 		{
-		$sql = "INSERT INTO pedidos (id_cte,id_estab,hora_solicitud,status_pedido,forma_pago,total) 
-		        VALUES (?, ?, ?, ?, ?, ?)";
+			$key =  $_SESSION['claveApi'];
+			$url = 'http://localhost/webserviceRestaurantes/pedidos';
 
-		$this->pdo->prepare($sql)
-		     ->execute(
-				array(
-                    $data->id_cte, 
-					$data->id_estab,
-					$data->hora_solicitud,
-					$data->status_pedido,
-					$data->forma_pago,					
-					$data->total
-                )
-			);
+			$response = \Httpful\Request::post($url)
+			->addHeader('authorization', $key)
+			->body($data)
+			->send();
+
+			return json_decode($response);				
 		} catch (Exception $e) 
 		{
 			die($e->getMessage());
