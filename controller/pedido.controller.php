@@ -19,7 +19,14 @@ class PedidoController{
         $pedido = new Pedido();
         
         if(isset($_REQUEST['folio'])){
-            $pedido = $this->model->Obtener($_REQUEST['folio']);
+            $datos = $this->model->Obtener($_REQUEST['folio'])->datos[0];
+            $pedido->folio = $datos->folio;
+            $pedido->id_cte = $datos->id_cte;
+            $pedido->id_estab = $datos->id_estab;
+            $pedido->hora_solicitud = $datos->hora_solicitud;
+            $pedido->status_pedido = $datos->forma_pago;
+            $pedido->total = $datos->total;
+            //$pedido->folio = $this->model->Obtener($_REQUEST['folio'])->folio;
         }
         
         require_once 'view/header.php';
