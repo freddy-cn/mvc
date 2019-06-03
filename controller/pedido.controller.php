@@ -68,4 +68,10 @@ class PedidoController{
         $this->model->Eliminar($_REQUEST['id']);
         header('Location: index.php');
     }
+
+    public function logout(){
+        session_unset();        
+        session_destroy();
+        header('Location: login.php');
+    }
 }

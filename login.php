@@ -40,7 +40,6 @@
 
 <?php
 $url = 'http://localhost/webserviceRestaurantes/empleados/login';
-
    
 if($_SERVER["REQUEST_METHOD"] == "POST"){
    $datos_post = json_encode(

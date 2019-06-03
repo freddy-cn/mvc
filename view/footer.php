@@ -5,7 +5,7 @@
                     <?php             
                         echo "Usuario: ".$_SESSION['usuario']."<br/>";
                         echo "claveApi: ".$_SESSION['claveApi']."<p/></br></br>";
-                        echo "<a href='login.php' class=\"btn btn-info\" >Cerrar sesión</a>";
+                        echo '<a href="?c=Pedido&a=logout" class="btn btn-info" >Cerrar sesión</a>';                        
                     ?>     
                     </footer>                
                 </div>    
