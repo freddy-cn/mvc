@@ -74,4 +74,9 @@ class PedidoController{
         session_destroy();
         header('Location: login.php');
     }
+
+    //creacion del reporte
+    public function Reporte(){
+        require_once 'model/reportes.php';
+    }
 }

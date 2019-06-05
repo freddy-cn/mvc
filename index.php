@@ -40,4 +40,5 @@ if(isset($_SESSION['sesion_iniciada'])==true){
     echo "<p>Haz click en el botón de abajo para dirigirte a la página de login</p>";
     echo "<a href='login.php' class=\"btn btn-info\">Iniciar sesión</a>";
 }
+
 ?>

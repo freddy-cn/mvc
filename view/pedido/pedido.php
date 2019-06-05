@@ -2,6 +2,7 @@
 
 <div class="well well-sm text-right">
     <a class="btn btn-primary" href="?c=Pedido&a=Crud">Agregar pedido</a>
+    <a class="btn btn-primary" href="view/pedido/reporte.php" target="_blank">Imprimir</a>
 </div>
 
 <table class="table table-striped">
