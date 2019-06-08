@@ -31,11 +31,11 @@ class Pedido
 	{
 		try
 		{			
-
+			$key =  $_SESSION['claveApi'];
 			$url = 'http://localhost/webserviceRestaurantes/pedidos';
 
 			$response = \Httpful\Request::get($url)
-			->addHeader('authorization', '94574891ab17f57de133627922df93b6')
+			->addHeader('authorization', $key)
 			->send();
 
 			return json_decode($response);	
