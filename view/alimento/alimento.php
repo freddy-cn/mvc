@@ -8,7 +8,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Identificador</th>
+            <th>Id.</th>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Unidad</th>
@@ -16,6 +16,7 @@
             <th>Precio</th>
             <th>Estilo</th>
             <th>Tiempo de menú</th>
+            <th>Imagen</th>
             <th>existencia</th>
             <th/th>
         </tr>
@@ -35,7 +36,7 @@
             <td><?php echo $alimento->precio_unit;?></td>
             <td><?php echo $alimento->id_tipo_cocina;?></td>
             <td><?php echo $alimento->tiempo_menu;?></td>
-            <td><?php echo $alimento->foto_alim;?></td>
+            <td><img src="<?php echo $alimento->foto_alim;?>" width="90px"></td>
             <td><?php echo $alimento->existencia;?></td>
             <td>
                 <a href="?c=Alimento&a=Crud&id_alim=<?php echo $alimento->id_alim; ?>">Editar</a>

@@ -13,6 +13,9 @@
         <!-- <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script> -->
 	</head>
     <body>
-			<a href="?c=Pedido" class="btn btn-info" >Lista de Pedidos</a>
-			<a href="?c=Alimento" class="btn btn-info" >Menu de comidas</a>			
-    <div class="container">
+			<nav ">
+				<a href="?c=Pedido" class="btn btn-info" >Lista de Pedidos</a>
+				<a href="?c=Alimento" class="btn btn-info" >Menu de comidas</a>
+			</nav>
+    <!-- <div class="container"> -->
+		<div style="margin:20px;">
