@@ -1,4 +1,4 @@
-<h1 class="page-header">Pedidos</h1>
+<h1 class="page-header">Lista de pedidos</h1>
 
 <div class="well well-sm text-right">
     <a class="btn btn-primary" href="?c=Pedido&a=Crud">Agregar pedido</a>
@@ -21,9 +21,9 @@
     <tbody>
 
     <?php
-    $modelo = $this->model->Listar();        
-     foreach($modelo->datos as $pedido):         
-        ?>        
+    $modelo = $this->model->Listar();
+     foreach($modelo->datos as $pedido):
+        ?>
         <tr>
             <td><?php echo $pedido->folio; ?></td>
             <td><?php echo $pedido->id_cte; ?></td>
@@ -36,10 +36,10 @@
                 <a href="?c=Pedido&a=Crud&folio=<?php echo $pedido->folio; ?>">Editar</a>
             </td>
             <td>
-                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Pedido&a=Eliminar&id=<?php echo $pedido->folio; ?>">Eliminar</a>
+                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Pedido&a=Eliminar&folio=<?php echo $pedido->folio; ?>">Eliminar</a>
             </td>
         </tr>
     <?php endforeach; ?>
-    
+
     </tbody>
-</table> 
+</table>

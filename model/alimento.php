@@ -1,16 +1,19 @@
 <?php
 include_once('./httpful.phar');
-class Pedido
+class Alimento
 {
 	private $pdo;
 
-	public $folio;
-	public $id_cte;
-	public $id_estab;
-	public $hora_solicitud;
-	public $status_pedido;
-	public $forma_pago;
-	public $total;
+	public $id_alim;
+	public $nombre_alim;
+	public $descripcion_alim;
+	public $u_medida;
+	public $tiempo_prep;
+	public $precio_unit;
+	public $id_tipo_cocina;
+	public $tiempo_menu;
+	public $foto_alim;
+	public $existencia;
 
 	public $response;
 	public $key;
@@ -32,7 +35,7 @@ class Pedido
 		try
 		{
 			$key =  $_SESSION['claveApi'];
-			$url = 'http://localhost/webserviceRestaurantes/pedidos';
+			$url = 'http://localhost/webserviceRestaurantes/alimentos';
 
 			$response = \Httpful\Request::get($url)
 			->addHeader('authorization', $key)
@@ -46,12 +49,12 @@ class Pedido
 		}
 	}
 
-	public function Obtener($folio)
+	public function Obtener($id_alim)
 	{
 		try
 		{
 			$key =  $_SESSION['claveApi'];
-			$url = 'http://localhost/webserviceRestaurantes/pedidos/'.$folio;
+			$url = 'http://localhost/webserviceRestaurantes/alimentos/'.$id_alim;
 
 			$response = \Httpful\Request::get($url)
 			->addHeader('authorization', $key)
@@ -64,13 +67,13 @@ class Pedido
 		}
 	}
 
-	public function Eliminar($folio)
+	public function Eliminar($id_alim)
 	{
 
 		try
 		{
 			$key =  $_SESSION['claveApi'];
-			$url = 'http://localhost/webserviceRestaurantes/pedidos/'.$folio;
+			$url = 'http://localhost/webserviceRestaurantes/alimentos/'.$id_alim;
 
 			$response = \Httpful\Request::delete($url)
 			->addHeader('authorization', $key)
@@ -84,12 +87,12 @@ class Pedido
 
 	}
 
-	public function Actualizar($data,$folio)
+	public function Actualizar($data)
 	{
 		try
 		{
 			$key =  $_SESSION['claveApi'];
-			$url = 'http://localhost/webserviceRestaurantes/pedidos/'.$folio;
+			$url = 'http://localhost/webserviceRestaurantes/alimentos/'. $id_alim;
 
 			$response = \Httpful\Request::put($url)
 			->addHeader('authorization', $key)
@@ -108,7 +111,7 @@ class Pedido
 		try
 		{
 			$key =  $_SESSION['claveApi'];
-			$url = 'http://localhost/webserviceRestaurantes/pedidos';
+			$url = 'http://localhost/webserviceRestaurantes/alimentos/';
 
 			$response = \Httpful\Request::post($url)
 			->addHeader('authorization', $key)
