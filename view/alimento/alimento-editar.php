@@ -8,8 +8,11 @@
   <li class="active"><?php echo $alimento->id_alim != null ? $alimento->id_alim : 'Nuevo Registro'; ?></li>
 </ol>
 
-<form id="frm-alumno" action="?c=Alimento&a=Guardar" method="post" enctype="multipart/form-data">
+<form id="frm-alumno" action="?c=Alimento&a=Guardar&id_alim=<?php echo $alimento->id_alim; ?>" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>Id</label>
     <input type="text" name="id_alim" value="<?php echo $alimento->id_alim; ?>" class="form-control" />
+  </div>
 
     <div class="form-group">
         <label>Nombre</label>

@@ -64,17 +64,15 @@ class AlimentoController{
               'existencia' => $alimento->existencia
             )
         );
-        echo $datos_json;
 
-        $alimento->id_alim > 0
-            ? $this->model->Actualizar($datos_json)
+        $this->model->Obtener($alimento->id_alim)->datos[0]->id_alim == (string)$alimento->id_alim
+            ? $this->model->Actualizar($datos_json, $alimento->id_alim)
             : $this->model->Registrar($datos_json);
-
-        header('Location: index.php');
+        header('Location: index.php?c=Alimento');
     }
 
     public function Eliminar(){
-        $this->model->Eliminar($_REQUEST['id']);
+        $this->model->Eliminar($_REQUEST['id_alim']);
         header('Location: index.php');
     }
 

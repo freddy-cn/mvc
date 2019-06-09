@@ -87,18 +87,17 @@ class Alimento
 
 	}
 
-	public function Actualizar($data)
-	{
+	public function Actualizar($data, $id_alim)
+	{		
 		try
 		{
 			$key =  $_SESSION['claveApi'];
-			$url = 'http://localhost/webserviceRestaurantes/alimentos/'. $id_alim;
+			$url = 'http://localhost/webserviceRestaurantes/alimentos/'.$id_alim;
 
 			$response = \Httpful\Request::put($url)
 			->addHeader('authorization', $key)
 			->body($data)
 			->send();
-
 			return json_decode($response);
 		} catch (Exception $e)
 		{

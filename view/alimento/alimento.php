@@ -8,16 +8,16 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th style="width:90px;">Identificador</th>
-            <th style="width:120px;">Nombre</th>
-            <th style="width:120px;">Descripción</th>
-            <th style="width:100px;">Unidad</th>
-            <th style="width:120px;">Tiempo prep.</th>
-            <th style="width:120px;">Precio</th>
-            <th style="width:120px;">Estilo</th>
-            <th style="width:120px;">Tiempo de menú</th>
-            <th style="width:120px;">existencia</th>
-            <th style="width:60px;"></th>
+            <th>Identificador</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Unidad</th>
+            <th>Tiempo prep.</th>
+            <th>Precio</th>
+            <th>Estilo</th>
+            <th>Tiempo de menú</th>
+            <th>existencia</th>
+            <th/th>
         </tr>
     </thead>
     <tbody>
@@ -29,7 +29,7 @@
         <tr>
             <td><?php echo $alimento->id_alim;?></td>
             <td><?php echo $alimento->nombre_alim;?></td>
-            <td><?php echo $alimento->descripcion_alim;?></td>
+            <td><textarea style="resize:none;" readonly> <?php echo $alimento->descripcion_alim;?> </textarea></td>
             <td><?php echo $alimento->u_medida;?></td>
             <td><?php echo $alimento->tiempo_prep;?></td>
             <td><?php echo $alimento->precio_unit;?></td>
@@ -41,7 +41,7 @@
                 <a href="?c=Alimento&a=Crud&id_alim=<?php echo $alimento->id_alim; ?>">Editar</a>
             </td>
             <td>
-                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Alimento&a=Eliminar&id=<?php echo $alimento->id_alim; ?>">Eliminar</a>
+                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Alimento&a=Eliminar&id_alim=<?php echo $alimento->id_alim; ?>">Eliminar</a>
             </td>
         </tr>
     <?php endforeach; ?>
