@@ -1,12 +1,11 @@
-<h1 class="page-header">Lista de pedidos</h1>
-
+<h2>Lista de pedidos</h2>
 <div class="well well-sm text-right">
-    <a class="btn btn-primary" href="?c=Pedido&a=Crud">Agregar pedido</a>
-    <a class="btn btn-primary" href="view/pedido/reporte.php" target="_blank">Imprimir</a>
+    <a class="btn btn-success" href="?c=Pedido&a=Crud">Agregar pedido</a>
+    <a class="btn btn-info" href="view/pedido/reporte.php" target="_blank">Imprimir</a>
 </div>
 
 <table class="table table-striped">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th style="width:90px;">Folio</th>
             <th style="width:120px;">Id cliente</th>
@@ -33,10 +32,10 @@
             <td><?php echo $pedido->forma_pago; ?></td>
             <td><?php echo $pedido->total; ?></td>
             <td>
-                <a href="?c=Pedido&a=Crud&folio=<?php echo $pedido->folio; ?>">Editar</a>
+                <a href="?c=Pedido&a=Crud&folio=<?php echo $pedido->folio; ?>" class="btn btn-warning">Editar</a>
             </td>
             <td>
-                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Pedido&a=Eliminar&folio=<?php echo $pedido->folio; ?>">Eliminar</a>
+                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Pedido&a=Eliminar&folio=<?php echo $pedido->folio; ?>" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
     <?php endforeach; ?>

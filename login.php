@@ -68,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    $respuesta = stream_get_contents($fp);
    //$contenido = array();
    $contenido = json_decode($respuesta, true);
-   var_dump($respuesta);
+
    if($contenido["empleado"]["claveApi"]){
       // variables de sesión
       session_id("nuevaSesion");

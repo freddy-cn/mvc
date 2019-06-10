@@ -56,7 +56,6 @@ class PedidoController{
                 'total'=>$pedido->total
             )
         );
-        echo $folio;
         $folio > 0
             ? $this->model->Actualizar($datos_json,$folio)
             : $this->model->Registrar($datos_json);
