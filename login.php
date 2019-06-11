@@ -26,7 +26,7 @@
          <div style = "background-color:#333333; color:#FFFFFF; padding:6px;" ><b>Login</b></div>
             <div style = "margin:30px; width: 30%;" class="page-header" align="left">
                <form method="post">
-                  <label>Correo  :</label><br/><input type="text" name="email" class="form-control" value="beto@gmail.com" required/><br /><br />
+                  <label>Correo  :</label><br/><input type="text" name="email" class="form-control" value="alex@gmail.com" required/><br /><br />
                   <label>Contraseña  :</label><br/><input type="password" name="password" class="form-control" value="1234" required/><br/><br />
                   <input type="submit" value="Iniciar sesión" class="btn btn-info btn-block" /><br />
                </form>

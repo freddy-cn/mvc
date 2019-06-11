@@ -35,6 +35,9 @@
                 <a href="?c=Pedido&a=Crud&folio=<?php echo $pedido->folio; ?>" class="btn btn-warning">Editar</a>
             </td>
             <td>
+                <a href ="?c=detallePedido&a=Crud&folio=<?php echo $pedido->folio; ?>" class="btn btn-primary">Ver detalles</a>
+            </td>
+            <td>
                 <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Pedido&a=Eliminar&folio=<?php echo $pedido->folio; ?>" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
