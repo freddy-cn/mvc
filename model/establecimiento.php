@@ -32,7 +32,7 @@ class Establecimiento
 		try
 		{
 			$key =  $_SESSION['claveApi'];
-			$url = 'http://localhost/webserviceRestaurantes/pedidos';
+			$url = 'http://localhost/webserviceRestaurantes/establecimientos';
 
 			$response = \Httpful\Request::get($url)
 			->addHeader('authorization', $key)

@@ -11,7 +11,7 @@ class EstablecimientosController{
 
     public function Index(){
         require_once 'view/header.php';
-        require_once 'view/pedido/pedido.php';
+        require_once 'view/establecimientos/establecimientos.php';
         require_once 'view/footer.php';
     }
 
@@ -28,9 +28,8 @@ class EstablecimientosController{
             $pedido->total = $datos->total;
             //$pedido->folio = $this->model->Obtener($_REQUEST['folio'])->folio;
         }
-
         require_once 'view/header.php';
-        require_once 'view/pedido/pedido-editar.php';
+        require_once 'view/establecimientos/establecimiento-editar.php';
         require_once 'view/footer.php';
     }
 
