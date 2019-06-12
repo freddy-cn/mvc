@@ -6,7 +6,7 @@
                         echo "Usuario: ".$_SESSION['usuario']."<br/>";
                         echo "claveApi: ".$_SESSION['claveApi']."<p/></br></br>";
                         echo '<p>Si detectas un error no dudes en contactarnos al siguiente correo: Alexis.tuz1@gmail.com <br>';
-                        echo '<br><a href="correo.html" >Enviar correo</a> <br>';
+                        echo '<br><a href="correo.html" target=_blank>Enviar correo</a> <br>';
                         echo '<br><a href="?c=Pedido&a=logout" class="btn btn-info" >Cerrar sesión</a>';
                         
                     ?>
