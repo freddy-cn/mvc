@@ -4,13 +4,26 @@ class Establecimiento
 {
 	private $pdo;
 
-	public $folio;
-	public $id_cte;
 	public $id_estab;
-	public $hora_solicitud;
-	public $status_pedido;
-	public $forma_pago;
-	public $total;
+	public $nombre_estab;
+	public $num_exterior_estab;
+    public $calle_estab;
+    public $cruzamiento1_calle_estab;
+	public $cruzamiento2_calle_estab;
+	public $colonia_estab;
+    public $ciudad_estab;
+    public $telefono_estab;
+    public $correo_estab;
+    public $horarios;
+    public $descripcion_estab;
+    public $id_tipo_cocina;
+    public $serv_domicilio;
+    public $serv_reserv;
+    public $calificacion;
+    public $id_tipo_rest;
+    public $ubicacion_gps_estab;
+    public $foto_estab;
+    public $logo_estab;
 
 	public $response;
 	public $key;
@@ -108,13 +121,12 @@ class Establecimiento
 		try
 		{
 			$key =  $_SESSION['claveApi'];
-			$url = 'http://localhost/webserviceRestaurantes/pedidos';
+			$url = 'http://localhost/webserviceRestaurantes/establecimientos';
 
 			$response = \Httpful\Request::post($url)
 			->addHeader('authorization', $key)
 			->body($data)
 			->send();
-
 			return json_decode($response);
 		} catch (Exception $e)
 		{

@@ -36,15 +36,29 @@ class EstablecimientosController{
     public function Guardar(){
         $pedido = new Establecimiento();
 
-        $folio = $_REQUEST['folio'];
-        $pedido->id_cte = $_REQUEST['id_cte'];
+        $id_estab = $_REQUEST['id_estab'];
         $pedido->id_estab = $_REQUEST['id_estab'];
-        $pedido->hora_solicitud = $_REQUEST['hora_solicitud'];
-        $pedido->status_pedido = $_REQUEST['status_pedido'];
-        $pedido->forma_pago = $_REQUEST['forma_pago'];
-        $pedido->total = $_REQUEST['total'];
-
-        $datos_json = json_encode(
+        $pedido->nombre_estab = $_REQUEST['nombre_estab'];
+        $pedido->num_exterior_estab = $_REQUEST['num_exterior_estab'];
+        $pedido->calle_estab = $_REQUEST['calle_estab'];
+        $pedido->cruzamiento1_calle_estab = $_REQUEST['cruzamiento1_calle_estab'];
+        $pedido->cruzamiento2_calle_estab = $_REQUEST['cruzamiento2_calle_estab'];
+        $pedido->colonia_estab = $_REQUEST['colonia_estab'];
+        $pedido->ciudad_estab = $_REQUEST['ciudad_estab'];
+        $pedido->telefono_estab = $_REQUEST['telefono_estab'];
+        $pedido->correo_estab = $_REQUEST['correo_estab'];
+        $pedido->horarios = $_REQUEST['horarios'];
+        $pedido->descripcion_estab = $_REQUEST['descripcion'];
+        $pedido->id_tipo_cocina = $_REQUEST['id_tipo_cocina'];
+        $pedido->serv_domicilio = $_REQUEST['serv_domicilio'];
+        $pedido->serv_reserv = $_REQUEST['serv_reserv'];
+        $pedido->calificacion = $_REQUEST['calificacion'];
+        $pedido->id_tipo_rest = $_REQUEST['id_tipo_rest'];
+        $pedido->ubicacion_gps_estab = $_REQUEST['ubicacion_gps_estab'];
+        $pedido->foto_estab = $_REQUEST['foto_estab'];
+        $pedido->logo_estab = $_REQUEST['logo_estab'];
+    
+    $datos_json = json_encode(
             array(
                 //'folio' => $pedido->folio,
                 'id_cte' => $pedido->id_cte,
@@ -55,11 +69,12 @@ class EstablecimientosController{
                 'total'=>$pedido->total
             )
         );
-        $folio > 0
+        var_dump($datos_json);
+        $id_estab > 0
             ? $this->model->Actualizar($datos_json,$folio)
             : $this->model->Registrar($datos_json);
 
-        header('Location: index.php');
+        header('Location: index.php?c=Establecimientos');
     }
 
     public function Eliminar(){
