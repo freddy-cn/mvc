@@ -31,9 +31,7 @@
                   <input type="submit" value="Iniciar sesión" class="btn btn-info btn-block" /><br />
                </form>
                <hr>
-            <div style="font-size:11px; color:#cc0000; margin-top:10px"></div>
-            <a href="correo.html" class="btn btn-warning btn-block">Enviar correo</a>
-         </div>
+         
       </div>
    </body>
 </html>
