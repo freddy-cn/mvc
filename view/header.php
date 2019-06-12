@@ -13,10 +13,11 @@
         <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	</head>
     <body>
-			<nav ">
-				<a href="?c=Pedido" style="width:33%;" class="btn btn-info" >Lista de Pedidos</a>
-				<a href="?c=Alimento" style="width:33%;" class="btn btn-info" >Menu de comidas</a>
-				<a href="?c=Publicidad" style="width:33%;" class="btn btn-info" >Promociones</a>
+			<nav>
+				<a href="?c=Pedido" style="width:24%;" class="btn btn-info" >Lista de Pedidos</a>
+				<a href="?c=Alimento" style="width:24%;" class="btn btn-info" >Menu de comidas</a>
+				<a href="?c=Publicidad" style="width:24%;" class="btn btn-info" >Promociones</a>
+				<a href="?c=Establecimientos" style="width:24%;" class="btn btn-info">Establecimientos</a>
 			</nav>
     <!-- <div class="container"> -->
 		<div style="margin:20px;">
