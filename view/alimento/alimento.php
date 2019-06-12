@@ -6,7 +6,7 @@
 </div>
 
 <table class="table table-striped">
-    <thead class="thead-dark">
+    <thead>
         <tr>
             <th>Id.</th>
             <th>Nombre</th>
@@ -35,7 +35,7 @@
             <td><?php echo $alimento->tiempo_prep;?></td>
             <td><?php echo $alimento->id_tipo_cocina;?></td>
             <td><?php echo $alimento->tiempo_menu;?></td>
-            <td><img src="<?php echo $alimento->foto_alim;?>" width="90px"></td>
+            <td><?php echo $alimento->foto_alim;?></td>
             <td><?php echo $alimento->existencia;?></td>
             <td>
                 <a href="?c=Alimento&a=Crud&id_alim=<?php echo $alimento->id_alim; ?>" class="btn btn-warning">Modificar</a>
