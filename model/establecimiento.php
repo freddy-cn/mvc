@@ -64,8 +64,7 @@ class Establecimiento
 		try
 		{
 			$key =  $_SESSION['claveApi'];
-			$url = 'http://localhost/webserviceRestaurantes/pedidos/'.$folio;
-
+			$url = 'http://localhost/webserviceRestaurantes/establecimientos/'.$folio;
 			$response = \Httpful\Request::get($url)
 			->addHeader('authorization', $key)
 			->send();
@@ -99,10 +98,11 @@ class Establecimiento
 
 	public function Actualizar($data,$folio)
 	{
+		
 		try
 		{
 			$key =  $_SESSION['claveApi'];
-			$url = 'http://localhost/webserviceRestaurantes/pedidos/'.$folio;
+			$url = 'http://localhost/webserviceRestaurantes/establecimientos/'.$folio;
 
 			$response = \Httpful\Request::put($url)
 			->addHeader('authorization', $key)
@@ -118,6 +118,7 @@ class Establecimiento
 
 	public function Registrar($data)
 	{
+		var_dump($data);
 		try
 		{
 			$key =  $_SESSION['claveApi'];
@@ -127,6 +128,7 @@ class Establecimiento
 			->addHeader('authorization', $key)
 			->body($data)
 			->send();
+			//var_dump($response);
 			return json_decode($response);
 		} catch (Exception $e)
 		{

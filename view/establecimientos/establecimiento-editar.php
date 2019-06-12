@@ -8,8 +8,9 @@
   <li class="active"><?php echo $pedido->id_estab != null ? $pedido->id_estab : 'Nuevo Registro'; ?></li>
 </ol>
 
-<form id="frm-alumno" action="?c=EstablecimientoS&a=Guardar&folio=<?php echo $pedido->folio; ?>" method="post" enctype="multipart/form-data">
+<form id="frm-alumno" action="?c=Establecimientos&a=Guardar&folio=<?php echo $pedido->id_estab; ?>" method="post" enctype="multipart/form-data">
   <div class="form-group">
+
     <label>ID</label>
       <input type="text" name="id_estab" value="<?php echo $pedido->id_estab; ?>" class="form-control" disabled/>
     </div>
@@ -101,17 +102,17 @@
 
     <div class="form-group">
         <label>ubicacion</label>
-        <input type="text" name="id_tipo_rest" value="<?php echo $pedido->id_tipo_rest; ?>" class="form-control" placeholder="Ingrese su correo electrónico" data-validacion-tipo="requerido|email" />
+        <input type="text" name="ubicacion_gps_estab" value="<?php echo $pedido->ubicacion_gps_estab; ?>" class="form-control" placeholder="Ingrese su correo electrónico" data-validacion-tipo="requerido|email" />
     </div>
 
     <div class="form-group">
         <label>Url foto de Establecimiento</label>
-        <input type="text" name="id_tipo_rest" value="<?php echo $pedido->id_tipo_rest; ?>" class="form-control" placeholder="Ingrese su correo electrónico" data-validacion-tipo="requerido|email" />
+        <input type="text" name="foto_estab" value="<?php echo $pedido->foto_estab; ?>" class="form-control" placeholder="Ingrese su correo electrónico" data-validacion-tipo="requerido|email" />
     </div>
 
     <div class="form-group">
         <label>Url foto de logo</label>
-        <input type="text" name="id_tipo_rest" value="<?php echo $pedido->id_tipo_rest; ?>" class="form-control" placeholder="Ingrese su correo electrónico" data-validacion-tipo="requerido|email" />
+        <input type="text" name="logo_estab" value="<?php echo $pedido->logo_estab; ?>" class="form-control" placeholder="Ingrese su correo electrónico" data-validacion-tipo="requerido|email" />
     </div>
 
     <hr />

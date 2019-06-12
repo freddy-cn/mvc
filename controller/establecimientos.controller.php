@@ -19,13 +19,26 @@ class EstablecimientosController{
         $pedido = new Establecimiento();
         if(isset($_REQUEST['folio'])){
             $datos = $this->model->Obtener($_REQUEST['folio'])->datos[0];
-            $pedido->folio = $datos->folio;
-            $pedido->id_cte = $datos->id_cte;
             $pedido->id_estab = $datos->id_estab;
-            $pedido->hora_solicitud = $datos->hora_solicitud;
-            $pedido->status_pedido = $datos->status_pedido;
-            $pedido->forma_pago = $datos->forma_pago;
-            $pedido->total = $datos->total;
+            $pedido->nombre_estab = $datos->nombre_estab;
+            $pedido->num_exterior_estab = $datos->num_exterior_estab;
+            $pedido->calle_estab = $datos->calle_estab;
+            $pedido->cruzamiento1_calle_estab = $datos->cruzamiento1_calle_estab;
+            $pedido->cruzamiento2_calle_estab = $datos->cruzamiento2_calle_estab;
+            $pedido->colonia_estab = $datos->colonia_estab;
+            $pedido->ciudad_estab = $datos->ciudad_estab;
+            $pedido->telefono_estab = $datos->telefono_estab;
+            $pedido->correo_estab = $datos->correo_estab;
+            $pedido->horarios = $datos->horarios;
+            $pedido->descripcion_estab = $datos->descripcion_estab;
+            $pedido->id_tipo_cocina = $datos->id_tipo_cocina;
+            $pedido->serv_domicilio = $datos->serv_domicilio;
+            $pedido->serv_reserv = $datos->serv_reserv;
+            $pedido->calificacion = $datos->calificacion;
+            $pedido->id_tipo_rest = $datos->id_tipo_rest;
+            $pedido->ubicacion_gps_estab = $datos->ubicacion_gps_estab;
+            $pedido->foto_estab = $datos->foto_estab;
+            $pedido->logo_estab = $datos->logo_estab;
             //$pedido->folio = $this->model->Obtener($_REQUEST['folio'])->folio;
         }
         require_once 'view/header.php';
@@ -35,9 +48,9 @@ class EstablecimientosController{
 
     public function Guardar(){
         $pedido = new Establecimiento();
-
-        $id_estab = $_REQUEST['id_estab'];
-        $pedido->id_estab = $_REQUEST['id_estab'];
+        //var_dump($_REQUEST);
+        $id_estab = $_REQUEST['folio'];
+        $pedido->id_estab = $_REQUEST['folio'];
         $pedido->nombre_estab = $_REQUEST['nombre_estab'];
         $pedido->num_exterior_estab = $_REQUEST['num_exterior_estab'];
         $pedido->calle_estab = $_REQUEST['calle_estab'];
@@ -48,7 +61,7 @@ class EstablecimientosController{
         $pedido->telefono_estab = $_REQUEST['telefono_estab'];
         $pedido->correo_estab = $_REQUEST['correo_estab'];
         $pedido->horarios = $_REQUEST['horarios'];
-        $pedido->descripcion_estab = $_REQUEST['descripcion'];
+        $pedido->descripcion_estab = $_REQUEST['descripcion_estab'];
         $pedido->id_tipo_cocina = $_REQUEST['id_tipo_cocina'];
         $pedido->serv_domicilio = $_REQUEST['serv_domicilio'];
         $pedido->serv_reserv = $_REQUEST['serv_reserv'];
@@ -59,22 +72,33 @@ class EstablecimientosController{
         $pedido->logo_estab = $_REQUEST['logo_estab'];
     
     $datos_json = json_encode(
-            array(
-                //'folio' => $pedido->folio,
-                'id_cte' => $pedido->id_cte,
-                'id_estab' =>$pedido->id_estab,
-                'hora_solicitud'=>$pedido->hora_solicitud,
-                'status_pedido'=>$pedido->status_pedido,
-                'forma_pago'=>$pedido->forma_pago,
-                'total'=>$pedido->total
+        array(
+                'id_estab'=> $pedido->id_estab,
+                'nombre_estab'=> $pedido->nombre_estab,
+                'num_exterior_estab'=> $pedido->num_exterior_estab,
+                'calle_estab'=> $pedido->calle_estab,
+                'cruzamiento1_calle_estab'=> $pedido->cruzamiento1_calle_estab,
+                'cruzamiento2_calle_estab'=> $pedido->cruzamiento2_calle_estab,
+                'colonia_estab'=> $pedido->colonia_estab,
+                'ciudad_estab'=> $pedido->ciudad_estab,
+                'telefono_estab'=> $pedido->telefono_estab,
+                'correo_estab'=> $pedido->correo_estab,
+                'horarios'=> $pedido->horarios,
+                'descripcion'=> $pedido->descripcion_estab,
+                'id_tipo_cocina'=> $pedido->id_tipo_cocina,
+                'serv_domicilio'=> $pedido->serv_domicilio,
+                'serv_reserv'=> $pedido->serv_reserv,
+                'calificacion'=> $pedido->calificacion,
+                'id_tipo_rest'=> $pedido->id_tipo_rest,
+                'ubicacion_gps_estab'=> $pedido->ubicacion_gps_estab,
+                'foto_estab'=> $pedido->foto_estab,
+                'logo_estab'=> $pedido->logo_estab
             )
         );
-        var_dump($datos_json);
         $id_estab > 0
-            ? $this->model->Actualizar($datos_json,$folio)
+            ? $this->model->Actualizar($datos_json,$id_estab)
             : $this->model->Registrar($datos_json);
-
-        header('Location: index.php?c=Establecimientos');
+        //header('Location: index.php?c=Establecimientos');
     }
 
     public function Eliminar(){

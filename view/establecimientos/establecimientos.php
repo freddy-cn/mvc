@@ -36,7 +36,7 @@
             <td><?php echo $pedido->telefono_estab; ?></td>
             <td><img src="<?php echo $pedido->foto_estab;?>" width="90px"></td>
             <td>
-                <a href="?c=Pedido&a=Crud&folio=<?php echo $pedido->folio; ?>" class="btn btn-warning">Editar</a>
+                <a href="?c=Establecimientos&a=Crud&folio=<?php echo $pedido->id_estab; ?>" class="btn btn-warning">Editar</a>
             </td>
             <td>
                 <a href ="?c=detallePedido&a=Crud&folio=<?php echo $pedido->folio; ?>" class="btn btn-primary">Ver detalles</a>
