@@ -1,7 +1,7 @@
 <h2>Lista de establecimientos</h2>
 <div class="well well-sm text-right">
     <a class="btn btn-success" href="?c=Establecimientos&a=Crud">Agregar establecimiento</a>
-    <a class="btn btn-info" href="view/pedido/reporte.php" target="_blank">Imprimir</a>
+    <a class="btn btn-info" href="view/establecimientos/establecimientos-reporte.php" target="_blank">Imprimir</a>
 </div>
 
 <table class="table table-striped">
