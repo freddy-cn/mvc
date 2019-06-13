@@ -3,24 +3,21 @@
 
 require('../../assets/fpdf/fpdf.php');
 
-class PDF_MySQL_Table extends FPDF
-{
-protected $ProcessingTable=false;
-protected $aCols=array();
-protected $TableX;
-protected $HeaderColor;
-protected $RowColors;
-protected $ColorIndex;
-
-function Header()
-{
-	// Print the table header if necessary
-	if($this->ProcessingTable)
+class PDF_MySQL_Table extends FPDF{
+	protected $ProcessingTable=false;
+	protected $aCols=array();
+	protected $TableX;
+	protected $HeaderColor;
+	protected $RowColors;
+	protected $ColorIndex;
+	
+	function Header(){
+		// Print the table header if necessary
+		if($this->ProcessingTable)
 		$this->TableHeader();
-}
-
-function TableHeader()
-{
+	}
+	
+	function TableHeader(){
 	$this->SetFont('Helvetica','B',12);
 	$this->SetX($this->TableX);
 	$fill=!empty($this->HeaderColor);
