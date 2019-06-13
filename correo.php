@@ -4,20 +4,20 @@
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <?php
-    
+
     require './assets/PHPMailer/src/Exception.php';
     require './assets/PHPMailer/src/PHPMailer.php';
     require './assets/PHPMailer/src/SMTP.php';
-    
-     
-    $mail = new PHPMailer\PHPMailer\PHPMailer(true);    
+
+
+    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
 
     try {
         $correo_remitente = $_POST['txtRemitente'];
         $password_remitente = $_POST['txtPassword'];
         $nombre_visible = $_POST['txtNombreVisible'];
         $correo_destinatario = $_POST['txtMail'];
-        $asunto = $_POST['txtAsunto'];;
+        $asunto = $_POST['txtAsunto'];
         $cuerpo = $_POST['txtMensaje'];
         $html  = "<html>";
         $html .= "<head>";
@@ -29,18 +29,18 @@
         $mail->Password = $password_remitente;   //password
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;                    //smtp port
-      
+
         $mail->setFrom($correo_remitente,$nombre_visible);//, 'Freddy Chuc');
         $mail->addAddress($correo_destinatario);//, 'albert');
-     
+
         //$mail->addAttachment(__DIR__ . '/attachment1.png');
         //$mail->addAttachment(__DIR__ . '/attachment2.png');
-     
+
         $mail->isHTML(true);
         $mail->Subject = $asunto;
         $mail->Body    = $cuerpo;
-     
-        $mail->send();        
+
+        $mail->send();
         echo '<div class="alert alert-success" role="alert">Mensaje enviado correctamente</div>';
         echo "<a href='login.php' class=\"btn btn-info\">Regresar al login</a></br></br>";
         echo "<a href='correo.html' class=\"btn btn-info\">Redactar nuevo</a>";
