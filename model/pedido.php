@@ -87,7 +87,7 @@ class Pedido
 	public function Actualizar($data,$folio)
 	{
 		try
-		{
+			{
 			$key =  $_SESSION['claveApi'];
 			$url = 'http://localhost/webserviceRestaurantes/pedidos/'.$folio;
 
