@@ -1,6 +1,6 @@
 <?php
 require_once 'model/alimento.php';
-
+//hola
 class AlimentoController{
 
     private $model;
