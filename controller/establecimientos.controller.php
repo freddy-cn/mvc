@@ -68,8 +68,16 @@ class EstablecimientosController{
         $pedido->calificacion = $_REQUEST['calificacion'];
         $pedido->id_tipo_rest = $_REQUEST['id_tipo_rest'];
         $pedido->ubicacion_gps_estab = $_REQUEST['ubicacion_gps_estab'];
-        $pedido->foto_estab = $_REQUEST['foto_estab'];
+        //$pedido->foto_estab = $_REQUEST['foto_estab'];
         $pedido->logo_estab = $_REQUEST['logo_estab'];
+
+        //subida de archivos
+        $nombre_imagen = $_FILES['foto_estab']['name'];
+        $tipo_imagen =$_FILES['foto_estab']['type'];
+        $tama_imagen = $_FILES['foto_estab']['size'];
+        $carpeta_destino = $_SERVER['DOCUMENT_ROOT']. '/mvc/assets/img/';
+        $pedido->foto_estab = $nombre_imagen;
+        move_uploaded_file($_FILES['foto_estab']['tmp_name'],$carpeta_destino.$nombre_imagen);
     
     $datos_json = json_encode(
         array(
@@ -84,7 +92,7 @@ class EstablecimientosController{
                 'telefono_estab'=> $pedido->telefono_estab,
                 'correo_estab'=> $pedido->correo_estab,
                 'horarios'=> $pedido->horarios,
-                'descripcion'=> $pedido->descripcion_estab,
+                'descripcion_estab'=> $pedido->descripcion_estab,
                 'id_tipo_cocina'=> $pedido->id_tipo_cocina,
                 'serv_domicilio'=> $pedido->serv_domicilio,
                 'serv_reserv'=> $pedido->serv_reserv,
@@ -98,12 +106,12 @@ class EstablecimientosController{
         $id_estab > 0
             ? $this->model->Actualizar($datos_json,$id_estab)
             : $this->model->Registrar($datos_json);
-        //header('Location: index.php?c=Establecimientos');
+            header('Location: index.php?c=Establecimientos');
     }
 
     public function Eliminar(){
         $this->model->Eliminar($_REQUEST['folio']);
-        header('Location: index.php');
+        header('Location: index.php?c=Establecimientos');
     }
 
     public function logout(){

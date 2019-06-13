@@ -78,11 +78,11 @@ class Establecimiento
 
 	public function Eliminar($folio)
 	{
-
+		var_dump($folio);
 		try
 		{
 			$key =  $_SESSION['claveApi'];
-			$url = 'http://localhost/webserviceRestaurantes/pedidos/'.$folio;
+			$url = 'http://localhost/webserviceRestaurantes/establecimientos/'.$folio;
 
 			$response = \Httpful\Request::delete($url)
 			->addHeader('authorization', $key)
@@ -118,7 +118,6 @@ class Establecimiento
 
 	public function Registrar($data)
 	{
-		var_dump($data);
 		try
 		{
 			$key =  $_SESSION['claveApi'];
@@ -128,7 +127,6 @@ class Establecimiento
 			->addHeader('authorization', $key)
 			->body($data)
 			->send();
-			//var_dump($response);
 			return json_decode($response);
 		} catch (Exception $e)
 		{

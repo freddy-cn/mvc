@@ -34,7 +34,7 @@
             <td><?php echo $pedido->colonia_estab; ?></td>
             <td><?php echo $pedido->ciudad_estab; ?></td>
             <td><?php echo $pedido->telefono_estab; ?></td>
-            <td><img src="<?php echo $pedido->foto_estab;?>" width="90px"></td>
+            <td><img src="/mvc/assets/img/<?php echo $pedido->foto_estab;?>" width="90px"></td>
             <td>
                 <a href="?c=Establecimientos&a=Crud&folio=<?php echo $pedido->id_estab; ?>" class="btn btn-warning">Editar</a>
             </td>
@@ -42,7 +42,7 @@
                 <a href ="?c=detallePedido&a=Crud&folio=<?php echo $pedido->folio; ?>" class="btn btn-primary">Ver detalles</a>
             </td>
             <td>
-                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Pedido&a=Eliminar&folio=<?php echo $pedido->folio; ?>" class="btn btn-danger">Eliminar</a>
+                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Establecimientos&a=Eliminar&folio=<?php echo $pedido->id_estab; ?>" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
     <?php endforeach; ?>

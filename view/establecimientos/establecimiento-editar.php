@@ -106,8 +106,8 @@
     </div>
 
     <div class="form-group">
-        <label>Url foto de Establecimiento</label>
-        <input type="text" name="foto_estab" value="<?php echo $pedido->foto_estab; ?>" class="form-control" placeholder="Ingrese su correo electrónico" data-validacion-tipo="requerido|email" />
+        <label for="imagen">Url foto de Establecimiento</label>
+        <input type="file" name="foto_estab" value="<?php echo $pedido->foto_estab; ?>" class="form-control" placeholder="Ingrese su correo electrónico" data-validacion-tipo="requerido|email" />
     </div>
 
     <div class="form-group">
