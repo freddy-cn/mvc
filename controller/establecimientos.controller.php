@@ -46,6 +46,38 @@ class EstablecimientosController{
         require_once 'view/footer.php';
     }
 
+    public function Detail(){
+        $pedido = new Establecimiento();
+        if(isset($_REQUEST['folio'])){
+            $datos = $this->model->ObtenerSoap($_REQUEST['folio'])->datos;
+            
+            $pedido->id_estab = $datos['id_estab'];
+            $pedido->nombre_estab = $datos['nombre_estab'];
+            $pedido->num_exterior_estab = $datos['num_exterior_estab'];
+            $pedido->calle_estab = $datos['calle_estab'];
+            $pedido->cruzamiento1_calle_estab = $datos['cruzamiento1_calle_estab'];
+            $pedido->cruzamiento2_calle_estab = $datos['cruzamiento2_calle_estab'];
+            $pedido->colonia_estab = $datos['colonia_estab'];
+            $pedido->ciudad_estab = $datos['ciudad_estab'];
+            $pedido->telefono_estab = $datos['telefono_estab'];
+            $pedido->correo_estab = $datos['correo_estab'];
+            $pedido->horarios = $datos['horarios'];
+            $pedido->descripcion_estab = $datos['descripcion_estab'];
+            $pedido->id_tipo_cocina = $datos['id_tipo_cocina'];
+            $pedido->serv_domicilio = $datos['serv_domicilio'];
+            $pedido->serv_reserv = $datos['serv_reserv'];
+            $pedido->calificacion = $datos['calificacion'];
+            $pedido->id_tipo_rest = $datos['id_tipo_rest'];
+            $pedido->ubicacion_gps_estab = $datos['ubicacion_gps_estab'];
+            $pedido->foto_estab = $datos['foto_estab'];
+            $pedido->logo_estab = $datos['logo_estab'];
+            //$pedido->folio = $this->model->Obtener($_REQUEST['folio'])->folio;
+        }
+        require_once 'view/header.php';
+        require_once 'view/establecimientos/establecimiento-detalles.php';
+        require_once 'view/footer.php';
+    }
+
     public function Guardar(){
         $pedido = new Establecimiento();
         //var_dump($_REQUEST);

@@ -39,7 +39,7 @@
                 <a href="?c=Establecimientos&a=Crud&folio=<?php echo $pedido->id_estab; ?>" class="btn btn-warning">Editar</a>
             </td>
             <td>
-                <a href ="?c=detallePedido&a=Crud&folio=<?php echo $pedido->folio; ?>" class="btn btn-primary">Ver detalles</a>
+                <a href ="?c=Establecimientos&a=Detail&folio=<?php echo $pedido->id_estab; ?>" class="btn btn-primary">Ver detalles</a>
             </td>
             <td>
                 <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Establecimientos&a=Eliminar&folio=<?php echo $pedido->id_estab; ?>" class="btn btn-danger">Eliminar</a>
